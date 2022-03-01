@@ -18,6 +18,7 @@ class Dashboardadmin extends CI_Controller{
 
 	public function index()
 	{
+		
 		$this->load->view('templates_administrator/header');
 		$this->load->view('templates_administrator/sidebaradmin');
 		$this->load->view('administrator/admin/dashboardadmin');

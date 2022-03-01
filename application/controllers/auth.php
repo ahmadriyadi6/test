@@ -37,9 +37,9 @@ class Auth extends CI_Controller {
 				}				
 				if($sess_data['level'] == 'admin'){
 					redirect('administrator/admin/dashboardadmin');
-				}elseif ($sess_data['level'] == 'guru') {
-					redirect('administrator/guru/dashboardguru');
-				}else {
+				}else if ($sess_data['level'] == 'pegawai') {
+					redirect('administrator/pegawai/dashboardpegawai');
+				}
 				$this->session->set_flashdata('pesan','<div class="alert alert-danger alert-dismissible fade show" role="alert">
 			  Maaf Username atau Password Anda Salah !
 			  <button type="button" class="close" data-dismiss="alert" aria-label="Close">
@@ -47,7 +47,6 @@ class Auth extends CI_Controller {
 			  </button>
 			</div>');
 				redirect('auth');
-			}
 
 			}else {
 				$this->session->set_flashdata('pesan','<div class="alert alert-danger alert-dismissible fade show" role="alert">

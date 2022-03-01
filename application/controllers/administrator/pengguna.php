@@ -10,7 +10,7 @@ class Pengguna extends CI_Controller{
 
 	public function index()
 	{	
-		$data['tb_admin'] = $this->pengguna_model->tampil_data()->result();	
+		$data['user'] = $this->pengguna_model->tampil_data()->result();	
 		$this->load->view('templates_administrator/header');
 		$this->load->view('templates_administrator/sidebaradmin');
 		$this->load->view('administrator/pengguna',$data);
@@ -71,7 +71,7 @@ class Pengguna extends CI_Controller{
 
 		public function _rules()
 	{
-		$this->form_validation->set_rules('username','Username','required|is_unique[tb_admin.username]',
+		$this->form_validation->set_rules('username','Username','required|is_unique[user.username]',
 			array(
 				'required' => 'Username Tidak Boleh Kosong!',
 				'is_unique' => '%s Sudah ada!*'
@@ -87,7 +87,7 @@ class Pengguna extends CI_Controller{
 	public function update($id)
 	{
 		$where = array('id' => $id);
-		$data['tb_admin'] = $this->pengguna_model->edit_data($where,'tb_admin')->result();
+		$data['user'] = $this->pengguna_model->edit_data($where,'user')->result();
 		$this->load->view('templates_administrator/header');
 		$this->load->view('templates_administrator/sidebaradmin');
 		$this->load->view('administrator/pengguna_update',$data);
@@ -113,9 +113,9 @@ class Pengguna extends CI_Controller{
 		$where = array(
 			'id' => $id
 		);
-		$this->pengguna_model->update_data($where,$data,'tb_admin');
+		$this->pengguna_model->update_data($where,$data,'user');
 		$this->session->set_flashdata('pesan','<div class="alert alert-success alert-dismissible fade show" role="alert">
-			  Data Mata Pelajaran Berhasil Diupdate !
+			  Data Pengguna Berhasil Diupdate !
 			  <button type="button" class="close" data-dismiss="alert" aria-label="Close">
 			    <span aria-hidden="true">&times;</span>
 			  </button>
@@ -125,9 +125,9 @@ class Pengguna extends CI_Controller{
 	public function delete($id)
 	{
 		$where = array('id' => $id);
-		$this->pengguna_model->hapus_data($where,'tb_admin');
+		$this->pengguna_model->hapus_data($where,'user');
 		$this->session->set_flashdata('pesan','<div class="alert alert-danger alert-dismissible fade show" role="alert">
-			  Data Mata Pelajaran Berhasil DiHapus!
+			  Data Pengguna Berhasil DiHapus!
 			  <button type="button" class="close" data-dismiss="alert" aria-label="Close">
 			    <span aria-hidden="true">&times;</span>
 			  </button>

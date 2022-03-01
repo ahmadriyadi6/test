@@ -58,7 +58,7 @@ $autoload['packages'] = array();
 |
 |	$autoload['libraries'] = array('user_agent' => 'ua');
 */
-$autoload['libraries'] = array('database','session','form_validation');
+$autoload['libraries'] = array('database','session','form_validation','fungsi');
 
 /*
 | -------------------------------------------------------------------
@@ -132,4 +132,4 @@ $autoload['language'] = array();
 |
 |	$autoload['model'] = array('first_model' => 'first');
 */
-$autoload['model'] = array('login_model','admin_model','dataguru_model','matpel_model','jurusan_model','datasiswa_model','jadwalguru_model','alumni_model','absenguru_model','tambahjurusan_model','absensiswa_model','nilaisiswa_model');
+$autoload['model'] = array('login_model','admin_model','suratumum_model','suratreview_model','jadwal_model','suratmasuk_model','suratkeluar_model','petugas_model');

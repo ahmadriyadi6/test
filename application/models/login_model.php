@@ -6,7 +6,7 @@ class Login_model extends CI_Model{
 	{
 		$this->db->where("username", $username);
 		$this->db->where("password", $password);
-		return $this->db->get('tb_admin');
+		return $this->db->get('user');
 	}
 
 	public function getLoginData($user, $pass)
@@ -14,7 +14,7 @@ class Login_model extends CI_Model{
 		$u = $user;
 		$p = MD5($pass);
 
-		$query_cekLogin = $this->db->get_where('tb_admin', array('username' => $u, 'password' => $p));
+		$query_cekLogin = $this->db->get_where('user', array('username' => $u, 'password' => $p));
 
 		if (count($query_ceklogin->result()) > 0) {
 			foreach ($query_ceklogin->result() as $qck){
